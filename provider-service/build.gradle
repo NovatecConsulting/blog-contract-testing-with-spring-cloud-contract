@@ -7,13 +7,16 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.3.RELEASE")
+        classpath "org.springframework.cloud:spring-cloud-contract-gradle-plugin:1.0.1.RELEASE"
     }
 }
 
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'eclipse'
+apply plugin: 'maven'
 apply plugin: 'org.springframework.boot'
+apply plugin: 'spring-cloud-contract'
 
 jar {
     baseName = 'provider-service'
@@ -31,4 +34,12 @@ dependencies {
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '1.4.3.RELEASE'
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '1.4.3.RELEASE'
     testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '1.4.3.RELEASE'
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-contract-wiremock', version: '1.0.1.RELEASE'
+    compile group: 'com.jayway.restassured', name: 'spring-mock-mvc', version: '2.9.0'
+    testCompile group: 'org.springframework.cloud', name: 'spring-cloud-contract-verifier', version: '1.0.3.RELEASE'
+}
+
+contracts {
+    baseClassForTests = 'product_demo.ContractVerifierBaseTest'
+    contractsDslDir = file("../provider-service/src/test/resources/contracts/")
 }
