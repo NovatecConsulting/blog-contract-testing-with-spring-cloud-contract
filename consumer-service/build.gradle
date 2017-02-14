@@ -23,7 +23,8 @@ repositories {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.11'
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '1.4.3.RELEASE'
-    testCompile group: 'org.springframework', name: 'spring-test', version: '4.3.5.RELEASE'
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '1.4.3.RELEASE'
+    testCompile group: 'org.springframework.cloud', name: 'spring-cloud-starter-contract-stub-runner', version: '1.0.3.RELEASE'
+    testCompile group: 'org.springframework.cloud', name: 'spring-cloud-contract-wiremock', version: '1.0.3.RELEASE'
 }

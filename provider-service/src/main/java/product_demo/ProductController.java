@@ -14,7 +14,11 @@ public class ProductController {
 
     @RequestMapping(value = "/product", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
     public Product product(@RequestParam(value = "id", defaultValue = "1") Integer productId) {
-        return new Product(productId, PRODUCT_NAME, productType, String.format(productDescription, PRODUCT_NAME
-        ));
+        return new Product(
+                productId,
+                PRODUCT_NAME,
+                productType,
+                String.format(productDescription, PRODUCT_NAME)
+        );
     }
 }

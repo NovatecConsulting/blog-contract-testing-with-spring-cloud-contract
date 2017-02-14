@@ -1,15 +1,13 @@
 import org.springframework.cloud.contract.spec.Contract
 
 Contract.make {
+    //ignored()
     request {
         method 'GET'
         urlPath('/product') {
             queryParameters {
                 parameter('id', 537)
             }
-        }
-        headers {
-            header('Content-Type', 'application/json;charset=UTF-8')
         }
     }
     response {

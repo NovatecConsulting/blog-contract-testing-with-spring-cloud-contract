@@ -7,7 +7,8 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.3.RELEASE")
-        classpath "org.springframework.cloud:spring-cloud-contract-gradle-plugin:1.0.1.RELEASE"
+        classpath "io.spring.gradle:dependency-management-plugin:0.6.0.RELEASE"
+        classpath "org.springframework.cloud:spring-cloud-contract-gradle-plugin:1.0.3.RELEASE"
     }
 }
 
@@ -16,6 +17,7 @@ apply plugin: 'idea'
 apply plugin: 'eclipse'
 apply plugin: 'maven'
 apply plugin: 'org.springframework.boot'
+apply plugin: "io.spring.dependency-management"
 apply plugin: 'spring-cloud-contract'
 
 jar {
@@ -30,13 +32,19 @@ repositories {
     mavenCentral()
 }
 
+dependencyManagement {
+    imports {
+        mavenBom 'org.springframework.cloud:spring-cloud-contract-dependencies:1.0.3.RELEASE'
+    }
+}
+
 dependencies {
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '1.4.3.RELEASE'
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '1.4.3.RELEASE'
     testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '1.4.3.RELEASE'
-    compile group: 'org.springframework.cloud', name: 'spring-cloud-contract-wiremock', version: '1.0.1.RELEASE'
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-contract-wiremock'
     compile group: 'com.jayway.restassured', name: 'spring-mock-mvc', version: '2.9.0'
-    testCompile group: 'org.springframework.cloud', name: 'spring-cloud-contract-verifier', version: '1.0.3.RELEASE'
+    testCompile group: 'org.springframework.cloud', name: 'spring-cloud-contract-verifier'
 }
 
 contracts {
