@@ -1,0 +1,14 @@
+{
+  "request" : {
+    "url" : "/product",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "{\"id\":537,\"name\":\"Consumer Test\",\"type\":\"testing product\",\"description\":\"Consumer Test verifies provider\"}",
+    "headers" : {
+      "X-Application-Context" : "application:-1",
+      "Content-Type" : "application/json;charset=UTF-8"
+    }
+  }
+}
