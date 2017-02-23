@@ -1,0 +1,9 @@
+[source,http,options="nowrap"]
+----
+HTTP/1.1 200 OK
+X-Application-Context: application:-1
+Content-Type: application/json;charset=UTF-8
+Content-Length: 106
+
+{"id":537,"name":"Consumer Test","type":"testing product","description":"Consumer Test verifies provider"}
+----

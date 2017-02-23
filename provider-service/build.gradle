@@ -50,5 +50,4 @@ dependencies {
 
 contracts {
     baseClassForTests = 'product_demo.ContractVerifierBaseTest'
-    contractsDslDir = file("../provider-service/src/test/resources/contracts/")
 }
